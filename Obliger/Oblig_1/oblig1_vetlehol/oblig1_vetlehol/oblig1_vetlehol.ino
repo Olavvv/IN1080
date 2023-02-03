@@ -11,7 +11,7 @@ void setup() {
   // put your setup code here, to run once:
   pinMode(LED_BUILTIN, OUTPUT); // Set pin as OUTPUT
   Serial.begin(9600); // Start serial communication at 9600 bps
-  ledValue = false;
+  ledValue = false; // True if LED on (HIGH), false if LED off (LOW)
 
 }
 
@@ -20,13 +20,13 @@ void loop() {
    { // If data is available to read,
     inputValue = Serial.read(); // read it and store it in val
 
-    if (inputValue == '1' & !ledValue) 
-    { // If 1 was received
+    // If 1 was received
+    if (inputValue == '1' & !ledValue) { // Will turn LED to 'HIGH' if 'LOW' 
       digitalWrite(LED_BUILTIN, HIGH);
       ledValue = true;
       Serial.print("1");
     }
-    else if (inputValue == '1' & ledValue) {
+    else if (inputValue == '1' & ledValue) { // Will turn LED to 'LOW' if 'HIGH' 
       digitalWrite(LED_BUILTIN, LOW);
       ledValue = false;
       Serial.print("0");
