@@ -16,7 +16,7 @@ void setup() {
   Serial.begin(9600); // Start serial communication at 9600 bps
   ledValue = false; // True if LED on (HIGH), false if LED off (LOW)
   Wire.begin(ADDRESS);
-  Wire.onRecieve(recieveEvent); // Kaller recieveEvent funksjon naar data mottas.
+  Wire.onReceive(recieveEvent); // Kaller recieveEvent funksjon naar data mottas.
 
 
 }
